@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Team | SmartCrop AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/team.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="team-hero text-white text-center">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative py-5">
+        <div class="hero-content col-xl-8 mx-auto">
+            <span class="hero-badge d-inline-flex align-items-center gap-2 mb-4">
+                <i class="bi bi-people"></i>
+                Meet the Team
+            </span>
+            <h1 class="hero-title display-3 fw-bold mb-4">
+                Our Team
+            </h1>
+            <p class="hero-lead lead mb-0 mx-auto">
+                Talented developers and engineers dedicated to revolutionizing agriculture through intelligent technology.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Team Members Section -->
+<section class="team-section py-5">
+    <div class="container py-lg-2">
+        <div class="section-header text-center mb-5 team-animate" style="--delay: 0.1s">
+            <span class="section-eyebrow">SmartCrop AI Team</span>
+            <h2 class="section-title fw-bold mb-3">Brilliant Minds at Work</h2>
+            <p class="section-subtitle text-muted mx-auto mb-0">
+                A dedicated team of computer science engineers building the future of intelligent agriculture.
+            </p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <!-- Team Member 1: Shobha Kumari -->
+            <div class="col-md-6 col-lg-4 team-animate" style="--delay: 0.2s">
+                <div class="team-card h-100 border-0 shadow-sm">
+                    <div class="team-card-header">
+                        <img src="{% static 'images/team/shobha-kumari.jpeg' %}"
+                             alt="Shobha Kumari" class="team-profile-img">
+                    </div>
+                    <div class="team-card-body text-center p-4">
+                        <h5 class="team-name fw-bold mb-1">Shobha Kumari</h5>
+                        <p class="team-department text-muted small mb-3">
+                            <span class="badge bg-success-light text-success me-2">CSE</span>
+                            <span class="badge bg-primary-light text-primary">6th Sem</span>
+                        </p>
+                        <p class="team-role fw-semibold mb-3">
+                            Full Stack Developer & Machine Learning
+                        </p>
+                        <div class="team-contact mb-3">
+                            <p class="contact-item small text-muted mb-2">
+                                <i class="bi bi-telephone me-2"></i>
+                                <span>(Contact on request)</span>
+                            </p>
+                        </div>
+                        <div class="team-socials">
+                            <a href="#" class="social-link" title="GitHub" data-bs-toggle="tooltip">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="#" class="social-link" title="LinkedIn" data-bs-toggle="tooltip">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="mailto:shobha@smartcrop.com" class="social-link" title="Email" data-bs-toggle="tooltip">
+                                <i class="bi bi-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 2: Dhanraj Kumar -->
+            <div class="col-md-6 col-lg-4 team-animate" style="--delay: 0.3s">
+                <div class="team-card h-100 border-0 shadow-sm">
+                    <div class="team-card-header">
+                        <img src="{% static 'images/team/dhanraj-kumar.jpeg' %}"
+                             alt="Dhanraj Kumar" class="team-profile-img">
+                    </div>
+                    <div class="team-card-body text-center p-4">
+                        <h5 class="team-name fw-bold mb-1">Dhanraj Kumar</h5>
+                        <p class="team-department text-muted small mb-3">
+                            <span class="badge bg-success-light text-success me-2">CSE</span>
+                            <span class="badge bg-primary-light text-primary">6th Sem</span>
+                        </p>
+                        <p class="team-role fw-semibold mb-3">
+                            Backend Developer
+                        </p>
+                        <div class="team-contact mb-3">
+                            <p class="contact-item small text-muted mb-2">
+                                <i class="bi bi-telephone me-2"></i>
+                                <span>(Contact on request)</span>
+                            </p>
+                        </div>
+                        <div class="team-socials">
+                            <a href="#" class="social-link" title="GitHub" data-bs-toggle="tooltip">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="#" class="social-link" title="LinkedIn" data-bs-toggle="tooltip">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="mailto:dhanraj@smartcrop.com" class="social-link" title="Email" data-bs-toggle="tooltip">
+                                <i class="bi bi-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 3: Raju Kumar Chauhan -->
+            <div class="col-md-6 col-lg-4 team-animate" style="--delay: 0.4s">
+                <div class="team-card h-100 border-0 shadow-sm">
+                    <div class="team-card-header">
+                        <img src="{% static 'images/team/Raju-kumar.jpeg' %}"
+                             alt="Raju Kumar Chauhan" class="team-profile-img">
+                    </div>
+                    <div class="team-card-body text-center p-4">
+                        <h5 class="team-name fw-bold mb-1">Raju Kumar Chauhan</h5>
+                        <p class="team-department text-muted small mb-3">
+                            <span class="badge bg-success-light text-success me-2">CSE</span>
+                            <span class="badge bg-primary-light text-primary">6th Sem</span>
+                        </p>
+                        <p class="team-role fw-semibold mb-3">
+                            Frontend Developer
+                        </p>
+                        <div class="team-contact mb-3">
+                            <p class="contact-item small text-muted mb-2">
+                                <i class="bi bi-telephone me-2"></i>
+                                <span>(Contact on request)</span>
+                            </p>
+                        </div>
+                        <div class="team-socials">
+                            <a href="#" class="social-link" title="GitHub" data-bs-toggle="tooltip">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="#" class="social-link" title="LinkedIn" data-bs-toggle="tooltip">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="mailto:raju@smartcrop.com" class="social-link" title="Email" data-bs-toggle="tooltip">
+                                <i class="bi bi-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/team.js' %}"></script>
+{% endblock %}

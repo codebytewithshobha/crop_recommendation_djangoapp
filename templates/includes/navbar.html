@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{% url 'recommendation:home' %}">
+            <i class="bi bi-flower1 me-1"></i>SmartCrop AI
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link{% if request.resolver_match.url_name == 'home' %} active{% endif %}"
+                       href="{% url 'recommendation:home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if request.resolver_match.url_name == 'about' %} active{% endif %}"
+                       href="{% url 'recommendation:about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if request.resolver_match.url_name == 'analysis' %} active{% endif %}"
+                       href="{% url 'recommendation:analysis' %}">Analysis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if request.resolver_match.url_name == 'predict' %} active{% endif %}"
+                       href="{% url 'recommendation:predict' %}">Predict</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if request.resolver_match.url_name == 'team' %} active{% endif %}"
+                       href="{% url 'recommendation:team' %}">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if request.resolver_match.url_name == 'contact' %} active{% endif %}"
+                       href="{% url 'recommendation:contact' %}">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -17,12 +17,9 @@ services:
     command: gunicorn smartcrop.wsgi:application --bind 0.0.0.0:8000 --workers 3
     depends_on:
       - db
+    env_file:
+      - .env
     environment:
-      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
-      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS:-localhost,127.0.0.1}
-      DB_NAME: ${DB_NAME:-smartcrop}
-      DB_USER: ${DB_USER:-smartcrop}
-      DB_PASSWORD: ${DB_PASSWORD:-changeme}
       DB_HOST: db
       DB_PORT: ${DB_PORT:-5432}
     ports:

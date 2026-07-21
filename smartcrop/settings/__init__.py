@@ -1,0 +1,1 @@
+"""SmartCrop Django settings package."""

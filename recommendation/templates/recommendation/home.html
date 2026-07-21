@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home | SmartCrop AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="hero-section home-hero text-white text-center">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative py-5">
+        <div class="hero-content col-xl-9 mx-auto">
+            <span class="hero-badge d-inline-flex align-items-center gap-2 mb-4">
+                <i class="bi bi-stars"></i>
+                AI-Powered Agriculture
+            </span>
+            <h1 class="hero-title display-3 fw-bold mb-4">
+                Grow Green,
+                <br class="d-none d-sm-inline">Grow Smarter
+            </h1>
+            <p class="hero-lead lead mb-5 mx-auto">
+                Turn soil data into high-yield crop choices with precision insights for sustainable farming.
+            </p>
+            <div class="hero-actions d-flex flex-column flex-sm-row justify-content-center gap-3 mb-5">
+                <a href="{% url 'recommendation:predict' %}" class="btn btn-light btn-lg hero-btn px-4">
+                    <i class="bi bi-search me-2"></i>Get Recommendation
+                </a>
+                <a href="{% url 'recommendation:analysis' %}" class="btn btn-outline-light btn-lg hero-btn px-4">
+                    <i class="bi bi-bar-chart-line me-2"></i>View Analysis
+                </a>
+            </div>
+            <div class="hero-stats row g-3 justify-content-center">
+                <div class="col-4 col-sm-auto">
+                    <div class="hero-stat">
+                        <i class="bi bi-flower1 hero-stat-icon"></i>
+                        <span class="hero-stat-value">22</span>
+                        <span class="hero-stat-label">Crops</span>
+                    </div>
+                </div>
+                <div class="col-4 col-sm-auto">
+                    <div class="hero-stat">
+                        <i class="bi bi-sliders hero-stat-icon"></i>
+                        <span class="hero-stat-value">7</span>
+                        <span class="hero-stat-label">Features</span>
+                    </div>
+                </div>
+                <div class="col-4 col-sm-auto">
+                    <div class="hero-stat">
+                        <i class="bi bi-bullseye hero-stat-icon"></i>
+                        <span class="hero-stat-value">99%+</span>
+                        <span class="hero-stat-label">Accuracy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="home-features py-5">
+    <div class="container py-lg-2">
+        <div class="section-header text-center mb-5 home-animate" style="--delay: 0.1s">
+            <span class="section-eyebrow">Why SmartCrop</span>
+            <h2 class="section-title fw-bold mb-3">Everything you need to choose wisely</h2>
+            <p class="section-subtitle text-muted mx-auto mb-0">
+                From soil nutrients to rainfall patterns — our platform brings clarity to crop selection.
+            </p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 home-animate" style="--delay: 0.2s">
+                <div class="card h-100 border-0 shadow-sm home-feature-card">
+                    <div class="card-body text-center p-4 p-lg-5">
+                        <div class="feature-icon-wrap mx-auto mb-4">
+                            <i class="bi bi-droplet-half"></i>
+                        </div>
+                        <h5 class="card-title fw-semibold mb-3">Soil Analysis</h5>
+                        <p class="card-text text-muted mb-0">
+                            Input Nitrogen, Phosphorus, Potassium levels and pH to match crops with your soil profile.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 home-animate" style="--delay: 0.35s">
+                <div class="card h-100 border-0 shadow-sm home-feature-card">
+                    <div class="card-body text-center p-4 p-lg-5">
+                        <div class="feature-icon-wrap mx-auto mb-4">
+                            <i class="bi bi-cloud-sun"></i>
+                        </div>
+                        <h5 class="card-title fw-semibold mb-3">Climate Factors</h5>
+                        <p class="card-text text-muted mb-0">
+                            Temperature, humidity, and rainfall are analyzed to find crops suited to your environment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 home-animate" style="--delay: 0.5s">
+                <div class="card h-100 border-0 shadow-sm home-feature-card">
+                    <div class="card-body text-center p-4 p-lg-5">
+                        <div class="feature-icon-wrap mx-auto mb-4">
+                            <i class="bi bi-cpu"></i>
+                        </div>
+                        <h5 class="card-title fw-semibold mb-3">ML-Powered</h5>
+                        <p class="card-text text-muted mb-0">
+                            Built with Scikit-learn to deliver accurate, fast crop recommendations from your inputs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}

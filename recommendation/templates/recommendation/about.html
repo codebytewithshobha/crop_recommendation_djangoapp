@@ -1,0 +1,290 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About | SmartCrop AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="about-hero text-white text-center">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative py-5">
+        <div class="hero-content col-xl-8 mx-auto">
+            <span class="hero-badge d-inline-flex align-items-center gap-2 mb-4">
+                <i class="bi bi-info-circle"></i>
+                Learn Our Story
+            </span>
+            <h1 class="hero-title display-3 fw-bold mb-4">
+                About SmartCrop AI
+            </h1>
+            <p class="hero-lead lead mb-0 mx-auto">
+                Revolutionizing agriculture with intelligent crop recommendations powered by machine learning, data science, and sustainable farming principles.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Problem, Solution, Objectives Section -->
+<section class="about-intro py-5">
+    <div class="container py-lg-2">
+        <div class="row g-4">
+            <div class="col-md-4 about-animate" style="--delay: 0.1s">
+                <div class="info-card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 p-lg-5 text-center">
+                        <div class="icon-wrap mx-auto mb-4">
+                            <i class="bi bi-exclamation-triangle"></i>
+                        </div>
+                        <h5 class="card-title fw-semibold mb-3">Problem Statement</h5>
+                        <p class="card-text text-muted mb-0">
+                            Farmers struggle with crop selection due to complex soil and climate conditions, leading to lower yields and economic losses.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 about-animate" style="--delay: 0.2s">
+                <div class="info-card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 p-lg-5 text-center">
+                        <div class="icon-wrap mx-auto mb-4">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+                        <h5 class="card-title fw-semibold mb-3">Our Solution</h5>
+                        <p class="card-text text-muted mb-0">
+                            An AI-powered system that analyzes 7 key agricultural parameters to deliver accurate, personalized crop recommendations instantly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 about-animate" style="--delay: 0.3s">
+                <div class="info-card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 p-lg-5 text-center">
+                        <div class="icon-wrap mx-auto mb-4">
+                            <i class="bi bi-target"></i>
+                        </div>
+                        <h5 class="card-title fw-semibold mb-3">Project Objectives</h5>
+                        <p class="card-text text-muted mb-0">
+                            Maximize agricultural productivity, reduce crop failures, promote sustainable farming, and empower farmers with data-driven decisions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works - Workflow Timeline -->
+<section class="about-workflow py-5 bg-light">
+    <div class="container py-lg-2">
+        <div class="section-header text-center mb-5 about-animate" style="--delay: 0.1s">
+            <span class="section-eyebrow">How It Works</span>
+            <h2 class="section-title fw-bold mb-3">Our Intelligent Workflow</h2>
+            <p class="section-subtitle text-muted mx-auto mb-0">
+                From raw data to actionable crop insights in four simple steps.
+            </p>
+        </div>
+        
+        <div class="workflow-container">
+            <div class="workflow-step about-animate" style="--delay: 0.2s">
+                <div class="workflow-icon">
+                    <i class="bi bi-cloud-sun"></i>
+                </div>
+                <div class="workflow-content">
+                    <h5 class="fw-semibold mb-2">Soil & Weather Data</h5>
+                    <p class="text-muted mb-0">Collect soil parameters (N, P, K, pH) and climate data (temperature, humidity, rainfall)</p>
+                </div>
+            </div>
+
+            <div class="workflow-arrow">
+                <i class="bi bi-arrow-right"></i>
+            </div>
+
+            <div class="workflow-step about-animate" style="--delay: 0.3s">
+                <div class="workflow-icon">
+                    <i class="bi bi-gear"></i>
+                </div>
+                <div class="workflow-content">
+                    <h5 class="fw-semibold mb-2">Data Preprocessing</h5>
+                    <p class="text-muted mb-0">Clean, normalize, and validate input data for model compatibility</p>
+                </div>
+            </div>
+
+            <div class="workflow-arrow">
+                <i class="bi bi-arrow-right"></i>
+            </div>
+
+            <div class="workflow-step about-animate" style="--delay: 0.4s">
+                <div class="workflow-icon">
+                    <i class="bi bi-cpu"></i>
+                </div>
+                <div class="workflow-content">
+                    <h5 class="fw-semibold mb-2">ML Model</h5>
+                    <p class="text-muted mb-0">Advanced algorithms analyze patterns and generate predictions</p>
+                </div>
+            </div>
+
+            <div class="workflow-arrow">
+                <i class="bi bi-arrow-right"></i>
+            </div>
+
+            <div class="workflow-step about-animate" style="--delay: 0.5s">
+                <div class="workflow-icon">
+                    <i class="bi bi-plant2"></i>
+                </div>
+                <div class="workflow-content">
+                    <h5 class="fw-semibold mb-2">Crop Recommendation</h5>
+                    <p class="text-muted mb-0">Get your ideal crop match with confidence scores and insights</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technologies Used -->
+<section class="about-technologies py-5">
+    <div class="container py-lg-2">
+        <div class="section-header text-center mb-5 about-animate" style="--delay: 0.1s">
+            <span class="section-eyebrow">Tech Stack</span>
+            <h2 class="section-title fw-bold mb-3">Technologies We Use</h2>
+            <p class="section-subtitle text-muted mx-auto mb-0">
+                Built with modern, reliable, and industry-standard technologies.
+            </p>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-6 col-md-4 col-lg-3 about-animate" style="--delay: 0.15s">
+                <div class="tech-card h-100">
+                    <i class="bi bi-snake"></i>
+                    <h6 class="fw-semibold mt-3 mb-0">Python</h6>
+                    <p class="text-muted small mt-1 mb-0">Core language</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 about-animate" style="--delay: 0.2s">
+                <div class="tech-card h-100">
+                    <i class="bi bi-diagram-3"></i>
+                    <h6 class="fw-semibold mt-3 mb-0">Django</h6>
+                    <p class="text-muted small mt-1 mb-0">Web framework</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 about-animate" style="--delay: 0.25s">
+                <div class="tech-card h-100">
+                    <i class="bi bi-graph-up"></i>
+                    <h6 class="fw-semibold mt-3 mb-0">Scikit-learn</h6>
+                    <p class="text-muted small mt-1 mb-0">ML algorithms</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 about-animate" style="--delay: 0.3s">
+                <div class="tech-card h-100">
+                    <i class="bi bi-table"></i>
+                    <h6 class="fw-semibold mt-3 mb-0">Pandas</h6>
+                    <p class="text-muted small mt-1 mb-0">Data processing</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 about-animate" style="--delay: 0.35s">
+                <div class="tech-card h-100">
+                    <i class="bi bi-calculator"></i>
+                    <h6 class="fw-semibold mt-3 mb-0">NumPy</h6>
+                    <p class="text-muted small mt-1 mb-0">Numerical computing</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 about-animate" style="--delay: 0.4s">
+                <div class="tech-card h-100">
+                    <i class="bi bi-bootstrap"></i>
+                    <h6 class="fw-semibold mt-3 mb-0">Bootstrap</h6>
+                    <p class="text-muted small mt-1 mb-0">UI framework</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 about-animate" style="--delay: 0.45s">
+                <div class="tech-card h-100">
+                    <i class="bi bi-cloud-check"></i>
+                    <h6 class="fw-semibold mt-3 mb-0">AWS</h6>
+                    <p class="text-muted small mt-1 mb-0">Cloud services</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 about-animate" style="--delay: 0.5s">
+                <div class="tech-card h-100">
+                    <i class="bi bi-database"></i>
+                    <h6 class="fw-semibold mt-3 mb-0">SQLite</h6>
+                    <p class="text-muted small mt-1 mb-0">Database</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why SmartCrop AI Section -->
+<section class="about-benefits py-5 bg-light">
+    <div class="container py-lg-2">
+        <div class="section-header text-center mb-5 about-animate" style="--delay: 0.1s">
+            <span class="section-eyebrow">Why Choose Us</span>
+            <h2 class="section-title fw-bold mb-3">Why SmartCrop AI?</h2>
+            <p class="section-subtitle text-muted mx-auto mb-0">
+                Experience the difference of AI-powered precision agriculture.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 about-animate" style="--delay: 0.2s">
+                <div class="benefit-card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 p-lg-5 text-center">
+                        <div class="benefit-icon mx-auto mb-4">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+                        <h5 class="card-title fw-semibold mb-3">Accurate Predictions</h5>
+                        <p class="card-text text-muted mb-0">
+                            99%+ accuracy with machine learning models trained on extensive agricultural datasets.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 about-animate" style="--delay: 0.3s">
+                <div class="benefit-card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 p-lg-5 text-center">
+                        <div class="benefit-icon mx-auto mb-4">
+                            <i class="bi bi-leaf"></i>
+                        </div>
+                        <h5 class="card-title fw-semibold mb-3">Sustainable Farming</h5>
+                        <p class="card-text text-muted mb-0">
+                            Promotes eco-friendly practices by optimizing resource usage and reducing waste.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 about-animate" style="--delay: 0.4s">
+                <div class="benefit-card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 p-lg-5 text-center">
+                        <div class="benefit-icon mx-auto mb-4">
+                            <i class="bi bi-bar-chart-line"></i>
+                        </div>
+                        <h5 class="card-title fw-semibold mb-3">Data-Driven Decisions</h5>
+                        <p class="card-text text-muted mb-0">
+                            Make informed choices based on real agricultural data and intelligent analysis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 about-animate" style="--delay: 0.5s">
+                <div class="benefit-card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 p-lg-5 text-center">
+                        <div class="benefit-icon mx-auto mb-4">
+                            <i class="bi bi-hand-thumbs-up"></i>
+                        </div>
+                        <h5 class="card-title fw-semibold mb-3">Easy to Use</h5>
+                        <p class="card-text text-muted mb-0">
+                            Simple, intuitive interface designed for farmers of all technical backgrounds.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/about.js' %}"></script>
+{% endblock %}

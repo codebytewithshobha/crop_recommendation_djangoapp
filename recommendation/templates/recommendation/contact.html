@@ -1,0 +1,317 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Contact | SmartCrop AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="contact-hero text-white text-center">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative py-5">
+        <div class="hero-content col-xl-8 mx-auto">
+            <span class="hero-badge d-inline-flex align-items-center gap-2 mb-4">
+                <i class="bi bi-chat-dots"></i>
+                Get in Touch
+            </span>
+            <h1 class="hero-title display-3 fw-bold mb-4">
+                Contact Us
+            </h1>
+            <p class="hero-lead lead mb-0 mx-auto">
+                Have questions or feedback? We're here to help. Reach out to us through any of these channels.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Methods Section -->
+<section class="contact-methods py-5">
+    <div class="container py-lg-2">
+        <div class="row g-4">
+            <!-- Email -->
+            <div class="col-md-6 col-lg-3 contact-animate" style="--delay: 0.1s">
+                <div class="contact-method-card h-100">
+                    <div class="method-icon">
+                        <i class="bi bi-envelope"></i>
+                    </div>
+                    <h5 class="method-title fw-bold mb-2">Email</h5>
+                    <p class="method-label text-muted small mb-2">Drop us a message</p>
+                    <a href="mailto:info@smartcrop.com" class="method-link">
+                        info@smartcrop.com
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="col-md-6 col-lg-3 contact-animate" style="--delay: 0.2s">
+                <div class="contact-method-card h-100">
+                    <div class="method-icon">
+                        <i class="bi bi-telephone"></i>
+                    </div>
+                    <h5 class="method-title fw-bold mb-2">Phone</h5>
+                    <p class="method-label text-muted small mb-2">Call us anytime</p>
+                    <a href="tel:+918765432100" class="method-link">
+                        +91 8765 432100
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Location -->
+            <div class="col-md-6 col-lg-3 contact-animate" style="--delay: 0.3s">
+                <div class="contact-method-card h-100">
+                    <div class="method-icon">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+                    <h5 class="method-title fw-bold mb-2">Location</h5>
+                    <p class="method-label text-muted small mb-2">Visit us in person</p>
+                    <p class="method-text">
+                        RVSCET Jamshedpur<br>
+                        Jamshedpur, Jharkhand
+                    </p>
+                </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="col-md-6 col-lg-3 contact-animate" style="--delay: 0.4s">
+                <div class="contact-method-card h-100">
+                    <div class="method-icon">
+                        <i class="bi bi-clock"></i>
+                    </div>
+                    <h5 class="method-title fw-bold mb-2">Business Hours</h5>
+                    <p class="method-label text-muted small mb-2">Monday - Friday</p>
+                    <p class="method-text">
+                        9:00 AM - 6:00 PM<br>
+                        <span class="status-badge">We're Online</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-form-section py-5 bg-light">
+    <div class="container py-lg-2">
+        <div class="section-header text-center mb-5 contact-animate" style="--delay: 0.1s">
+            <span class="section-eyebrow">Send a Message</span>
+            <h2 class="section-title fw-bold mb-3">Get in Touch With Us</h2>
+            <p class="section-subtitle text-muted mx-auto mb-0">
+                Fill out the form below and we'll get back to you as soon as possible.
+            </p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 contact-animate" style="--delay: 0.2s">
+                <div class="contact-form-card border-0 shadow-sm">
+                    <div class="card-body p-4 p-lg-5">
+                        <form method="post" novalidate id="contactForm">
+                            {% csrf_token %}
+                            
+                            <!-- Name Field -->
+                            <div class="mb-4">
+                                <label for="name" class="form-label fw-semibold">Full Name</label>
+                                <input type="text" class="form-control form-control-lg" id="name" name="name" 
+                                       placeholder="John Doe" required>
+                                <div class="form-text">Enter your full name</div>
+                            </div>
+
+                            <!-- Email Field -->
+                            <div class="mb-4">
+                                <label for="email" class="form-label fw-semibold">Email Address</label>
+                                <input type="email" class="form-control form-control-lg" id="email" name="email" 
+                                       placeholder="john@example.com" required>
+                                <div class="form-text">We'll never share your email</div>
+                            </div>
+
+                            <!-- Phone Field -->
+                            <div class="mb-4">
+                                <label for="phone" class="form-label fw-semibold">Phone Number</label>
+                                <input type="tel" class="form-control form-control-lg" id="phone" name="phone" 
+                                       placeholder="+91 98765 43210">
+                                <div class="form-text">Optional - For faster response</div>
+                            </div>
+
+                            <!-- Subject Field -->
+                            <div class="mb-4">
+                                <label for="subject" class="form-label fw-semibold">Subject</label>
+                                <select class="form-select form-select-lg" id="subject" name="subject" required>
+                                    <option value="">-- Select a subject --</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="bug">Report a Bug</option>
+                                    <option value="feature">Feature Request</option>
+                                    <option value="partnership">Partnership</option>
+                                    <option value="support">Technical Support</option>
+                                </select>
+                                <div class="form-text">Select the category of your message</div>
+                            </div>
+
+                            <!-- Message Field -->
+                            <div class="mb-4">
+                                <label for="message" class="form-label fw-semibold">Message</label>
+                                <textarea class="form-control form-control-lg" id="message" name="message" rows="5"
+                                          placeholder="Your message here..." required></textarea>
+                                <div class="form-text"><span id="charCount">0</span>/500 characters</div>
+                            </div>
+
+                            <!-- Checkbox -->
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="agree" required>
+                                    <label class="form-check-label" for="agree">
+                                        I agree to receive responses and updates from SmartCrop AI
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Alert Message -->
+                            <div class="alert alert-info d-flex align-items-center mb-4" role="alert">
+                                <i class="bi bi-info-circle me-2"></i>
+                                <span>Contact form submission will be enabled in a future update. For now, reach out via email or phone.</span>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-success btn-lg w-100 fw-semibold" disabled>
+                                <i class="bi bi-send me-2"></i>
+                                Send Message
+                            </button>
+
+                            <!-- Form Status Messages -->
+                            <div id="formStatus" class="mt-3"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="contact-faq py-5">
+    <div class="container py-lg-2">
+        <div class="section-header text-center mb-5 contact-animate" style="--delay: 0.1s">
+            <span class="section-eyebrow">Common Questions</span>
+            <h2 class="section-title fw-bold mb-3">Frequently Asked Questions</h2>
+            <p class="section-subtitle text-muted mx-auto mb-0">
+                Quick answers to common questions about SmartCrop AI.
+            </p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion accordion-flush" id="faqAccordion">
+                    <!-- FAQ 1 -->
+                    <div class="accordion-item contact-animate" style="--delay: 0.2s">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                <i class="bi bi-question-circle me-3"></i>How accurate are the crop recommendations?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                SmartCrop AI achieves 99%+ accuracy using advanced machine learning algorithms trained on extensive agricultural datasets. The system analyzes 7 key parameters including soil nutrients, pH, temperature, humidity, and rainfall patterns.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="accordion-item contact-animate" style="--delay: 0.25s">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                <i class="bi bi-question-circle me-3"></i>What crops does SmartCrop AI support?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                We support recommendations for 22 different crops including rice, wheat, maize, cotton, sugarcane, millets, pulses, oilseeds, spices, and various vegetables. The system continuously learns and can be expanded to include more crops.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="accordion-item contact-animate" style="--delay: 0.3s">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                <i class="bi bi-question-circle me-3"></i>Is SmartCrop AI free to use?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                Yes! SmartCrop AI is completely free to use. We believe in making intelligent agriculture accessible to all farmers. No registration required to get started with crop recommendations.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="accordion-item contact-animate" style="--delay: 0.35s">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                <i class="bi bi-question-circle me-3"></i>How do I input my soil parameters?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                Simply visit our Predict page and enter your soil parameters (N, P, K, pH) and climate data (temperature, humidity, rainfall). You can get soil testing kits from agricultural extension offices, or contact us for guidance on soil testing.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="accordion-item contact-animate" style="--delay: 0.4s">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                <i class="bi bi-question-circle me-3"></i>Can I use SmartCrop AI on mobile devices?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                Absolutely! SmartCrop AI is fully responsive and works seamlessly on mobile devices, tablets, and desktops. You can get crop recommendations on the go from anywhere in your farm.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Social Links Section -->
+<section class="contact-social py-5 bg-light">
+    <div class="container py-lg-2">
+        <div class="section-header text-center mb-5 contact-animate" style="--delay: 0.1s">
+            <span class="section-eyebrow">Follow Us</span>
+            <h2 class="section-title fw-bold mb-3">Connect on Social Media</h2>
+            <p class="section-subtitle text-muted mx-auto mb-0">
+                Stay updated with the latest agricultural insights and updates.
+            </p>
+        </div>
+
+        <div class="social-links text-center contact-animate" style="--delay: 0.2s">
+            <a href="#" class="social-icon" title="Facebook">
+                <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#" class="social-icon" title="Twitter">
+                <i class="bi bi-twitter"></i>
+            </a>
+            <a href="#" class="social-icon" title="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="#" class="social-icon" title="Instagram">
+                <i class="bi bi-instagram"></i>
+            </a>
+            <a href="#" class="social-icon" title="YouTube">
+                <i class="bi bi-youtube"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/contact.js' %}"></script>
+{% endblock %}

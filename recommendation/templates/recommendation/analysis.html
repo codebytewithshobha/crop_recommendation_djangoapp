@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Analysis | SmartCrop AI{% endblock %}
+
+{% block content %}
+<section class="page-header bg-light py-5">
+    <div class="container">
+        <h1 class="fw-bold">Data Analysis</h1>
+        <p class="lead text-muted mb-0">
+            Dataset overview and machine learning model performance for crop recommendation.
+        </p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4 mb-2">
+            <div class="col-6 col-md-4 col-xl">
+                <div class="card border-0 shadow-sm stat-card h-100">
+                    <div class="card-body d-flex align-items-center gap-3">
+                        <div class="stat-icon bg-success-subtle text-success">
+                            <i class="bi bi-database"></i>
+                        </div>
+                        <div>
+                            <p class="stat-label text-muted mb-1">Total Samples</p>
+                            <h3 class="stat-value mb-0">{{ metrics.total_samples|floatformat:0 }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-xl">
+                <div class="card border-0 shadow-sm stat-card h-100">
+                    <div class="card-body d-flex align-items-center gap-3">
+                        <div class="stat-icon bg-success-subtle text-success">
+                            <i class="bi bi-flower1"></i>
+                        </div>
+                        <div>
+                            <p class="stat-label text-muted mb-1">Number of Crops</p>
+                            <h3 class="stat-value mb-0">{{ metrics.num_crops }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-xl">
+                <div class="card border-0 shadow-sm stat-card h-100">
+                    <div class="card-body d-flex align-items-center gap-3">
+                        <div class="stat-icon bg-success-subtle text-success">
+                            <i class="bi bi-sliders"></i>
+                        </div>
+                        <div>
+                            <p class="stat-label text-muted mb-1">Features Used</p>
+                            <h3 class="stat-value mb-0">{{ metrics.features_used }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-xl">
+                <div class="card border-0 shadow-sm stat-card h-100">
+                    <div class="card-body d-flex align-items-center gap-3">
+                        <div class="stat-icon bg-success-subtle text-success">
+                            <i class="bi bi-cpu"></i>
+                        </div>
+                        <div>
+                            <p class="stat-label text-muted mb-1">Best Model</p>
+                            <h3 class="stat-value stat-value-sm mb-0">{{ metrics.best_model }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-xl">
+                <div class="card border-0 shadow-sm stat-card h-100">
+                    <div class="card-body d-flex align-items-center gap-3">
+                        <div class="stat-icon bg-success-subtle text-success">
+                            <i class="bi bi-bullseye"></i>
+                        </div>
+                        <div>
+                            <p class="stat-label text-muted mb-1">Accuracy</p>
+                            <h3 class="stat-value mb-0">{{ metrics.accuracy }}%</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-12">
+                <div class="d-flex flex-wrap gap-2">
+                    {% for feature in feature_names %}
+                    <span class="badge rounded-pill text-bg-light border feature-badge">{{ feature }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm chart-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h5 class="card-title mb-1">Crop Distribution</h5>
+                                <p class="card-text text-muted small mb-0">
+                                    Sample count per crop class in the training dataset.
+                                </p>
+                            </div>
+                            <span class="badge text-bg-success">Dataset</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="cropDistributionChart" aria-label="Crop distribution chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm chart-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h5 class="card-title mb-1">Model Comparison</h5>
+                                <p class="card-text text-muted small mb-0">
+                                    Test-set accuracy across evaluated classifiers.
+                                </p>
+                            </div>
+                            <span class="badge text-bg-success">Performance</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="modelComparisonChart" aria-label="Model comparison chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card border-0 shadow-sm chart-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h5 class="card-title mb-1">Correlation Heatmap</h5>
+                                <p class="card-text text-muted small mb-0">
+                                    Pearson correlation between soil and climate features.
+                                </p>
+                            </div>
+                            <span class="badge text-bg-success">Features</span>
+                        </div>
+                        <div class="chart-container chart-container-lg">
+                            <canvas id="correlationHeatmapChart" aria-label="Feature correlation heatmap"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ crop_distribution|json_script:"crop-distribution-data" }}
+{{ feature_names|json_script:"feature-names-data" }}
+{{ correlation_matrix|json_script:"correlation-matrix-data" }}
+{{ model_comparison|json_script:"model-comparison-data" }}
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@2.0.1/dist/chartjs-chart-matrix.min.js"></script>
+<script src="{% static 'js/analysis.js' %}"></script>
+{% endblock %}

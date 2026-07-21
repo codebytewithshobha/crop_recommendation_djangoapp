@@ -1,0 +1,148 @@
+﻿{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Predict | SmartCrop AI{% endblock %}
+
+{% block content %}
+
+<section class="page-header bg-light py-5">
+    <div class="container">
+        <h1 class="fw-bold">Crop Prediction</h1>
+        <p class="lead text-muted mb-0">
+            Enter soil and climate parameters to get the best crop recommendation.
+        </p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container col-lg-8">
+
+        <div class="card shadow border-0">
+            <div class="card-body p-4">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Nitrogen (N)</label>
+                            <input type="number" class="form-control" name="nitrogen" placeholder="90" required min="0" max="200" step="1" value="{{ values.nitrogen }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Phosphorus (P)</label>
+                            <input type="number" class="form-control" name="phosphorus" placeholder="42" required min="0" max="200" step="1" value="{{ values.phosphorus }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Potassium (K)</label>
+                            <input type="number" class="form-control" name="potassium" placeholder="43" required min="0" max="200" step="1" value="{{ values.potassium }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Temperature (°C)</label>
+                            <input type="number" class="form-control" name="temperature" placeholder="20.8" required step="0.1" min="-10" max="60" value="{{ values.temperature }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Humidity (%)</label>
+                            <input type="number" class="form-control" name="humidity" placeholder="82" required step="0.1" min="0" max="100" value="{{ values.humidity }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Soil pH</label>
+                            <input type="number" class="form-control" name="ph" placeholder="6.5" required step="0.1" min="0" max="14" value="{{ values.ph }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Rainfall (mm)</label>
+                            <input type="number" class="form-control" name="rainfall" placeholder="202" required step="0.1" min="0" max="5000" value="{{ values.rainfall }}">
+                        </div>
+                    </div>
+
+                    <div class="mt-4 d-flex flex-wrap gap-2 justify-content-end">
+                        <button class="btn btn-outline-secondary btn-lg" type="button" id="reset-form">Reset</button>
+                        <button class="btn btn-success btn-lg" type="submit">Predict Crop</button>
+                    </div>
+                    <div id="predict-message" class="mt-3 text-muted"></div>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <div>
+                    <h2 class="h4 mb-1">Sample Tested Inputs</h2>
+                    <p class="text-muted mb-0">परीक्षण किए गए डेटा उदाहरण — NPK और मिट्टी के मान</p>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="card h-100 border-primary sample-card" data-n="90" data-p="42" data-k="43" data-temp="25" data-humidity="80" data-ph="6.5" data-rainfall="200">
+                        <div class="card-body">
+                            <h5 class="card-title">Rice / धान</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li><strong>N:</strong> 90</li>
+                                <li><strong>P:</strong> 42</li>
+                                <li><strong>K:</strong> 43</li>
+                                <li><strong>Temp:</strong> 25°C</li>
+                                <li><strong>Humidity:</strong> 80%</li>
+                                <li><strong>pH:</strong> 6.5</li>
+                                <li><strong>Rainfall:</strong> 200 mm</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-success sample-card" data-n="70" data-p="30" data-k="40" data-temp="22" data-humidity="65" data-ph="6.0" data-rainfall="100">
+                        <div class="card-body">
+                            <h5 class="card-title">Maize / मक्का</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li><strong>N:</strong> 70</li>
+                                <li><strong>P:</strong> 30</li>
+                                <li><strong>K:</strong> 40</li>
+                                <li><strong>Temp:</strong> 22°C</li>
+                                <li><strong>Humidity:</strong> 65%</li>
+                                <li><strong>pH:</strong> 6.0</li>
+                                <li><strong>Rainfall:</strong> 100 mm</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-warning sample-card" data-n="20" data-p="15" data-k="20" data-temp="18" data-humidity="55" data-ph="6.8" data-rainfall="70">
+                        <div class="card-body">
+                            <h5 class="card-title">Lentil / मसूर</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li><strong>N:</strong> 20</li>
+                                <li><strong>P:</strong> 15</li>
+                                <li><strong>K:</strong> 20</li>
+                                <li><strong>Temp:</strong> 18°C</li>
+                                <li><strong>Humidity:</strong> 55%</li>
+                                <li><strong>pH:</strong> 6.8</li>
+                                <li><strong>Rainfall:</strong> 70 mm</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if prediction %}
+        <div class="card border-success shadow mt-5">
+            <div class="card-body text-center">
+                <h3 class="text-success fw-bold">Recommended Crop</h3>
+                <hr>
+                <h1 class="display-3 fw-bold text-success">{{ prediction|title }}</h1>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="alert alert-danger mt-4">
+            {{ error }}
+        </div>
+        {% endif %}
+
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/predict.js' %}"></script>
+{% endblock %}
