@@ -110,7 +110,6 @@ aws ecr get-login-password --region YOUR_REGION | docker login --username AWS --
 docker tag smartcrop-recommendation:latest YOUR_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/smartcrop-recommendation:latest
 docker push YOUR_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/smartcrop-recommendation:latest
 ```
-
 ## Notes
 
 - The current predict page uses form values and a machine learning model, but it does not require saved Django models for prediction.
